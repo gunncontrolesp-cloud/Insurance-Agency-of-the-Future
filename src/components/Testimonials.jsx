@@ -187,6 +187,7 @@ export default function Testimonials() {
 
   return (
     <section
+      id="about"
       style={{
         background: 'linear-gradient(to bottom, #020408, #030610)',
         padding: '7rem 2rem 8rem',

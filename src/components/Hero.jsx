@@ -184,8 +184,8 @@ export default function Hero() {
             transition: 'opacity 1s ease 1s, transform 1s ease 1s',
           }}
         >
-          <a href="#" className="btn-blast">
-            Learn More
+          <a href="#services" className="btn-blast">
+            View Our Services
           </a>
         </div>
 

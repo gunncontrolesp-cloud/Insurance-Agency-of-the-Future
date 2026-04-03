@@ -2,7 +2,12 @@ import { useState } from 'react';
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
-  const links = ['Home', 'About', 'Services', 'Blog'];
+  const links = [
+    { label: 'Home',     href: '#'        },
+    { label: 'About',    href: '#about'   },
+    { label: 'Services', href: '#services'},
+    { label: 'Blog',     href: '#'        },
+  ];
 
   return (
     <>
@@ -12,19 +17,19 @@ export default function Nav() {
       >
         {/* Desktop — centered buttons */}
         <div className="hidden md:flex items-center gap-4">
-          {links.map((link) => (
+          {links.map(({ label, href }) => (
             <a
-              key={link}
-              href="#"
+              key={label}
+              href={href}
               className="btn-blast"
               style={{ padding: '0.55rem 1.4rem', fontSize: '0.68rem' }}
             >
-              {link}
+              {label}
             </a>
           ))}
         </div>
 
-        {/* Mobile — hamburger toggle (right-aligned) */}
+        {/* Mobile — hamburger toggle */}
         <div className="md:hidden w-full flex justify-end">
           <button
             onClick={() => setOpen((o) => !o)}
@@ -40,22 +45,15 @@ export default function Nav() {
             }}
           >
             {open ? (
-              /* X icon */
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                 <path d="M2 2L16 16M16 2L2 16" stroke="#60A5FA" strokeWidth="1.5" strokeLinecap="round"/>
               </svg>
             ) : (
-              /* Hamburger icon */
               <>
                 {[0, 1, 2].map((i) => (
                   <span
                     key={i}
-                    style={{
-                      display: 'block',
-                      width: '20px',
-                      height: '1px',
-                      background: 'rgba(96,165,250,0.8)',
-                    }}
+                    style={{ display: 'block', width: '20px', height: '1px', background: 'rgba(96,165,250,0.8)' }}
                   />
                 ))}
               </>
@@ -64,11 +62,10 @@ export default function Nav() {
         </div>
       </nav>
 
-      {/* Mobile dropdown menu */}
+      {/* Mobile dropdown */}
       <div
         className="md:hidden fixed top-0 left-0 right-0 z-40"
         style={{
-          paddingTop: '72px',
           background: 'rgba(2,4,8,0.96)',
           backdropFilter: 'blur(12px)',
           borderBottom: '1px solid rgba(96,165,250,0.15)',
@@ -81,15 +78,15 @@ export default function Nav() {
           padding: '80px 1.5rem 2rem',
         }}
       >
-        {links.map((link) => (
+        {links.map(({ label, href }) => (
           <a
-            key={link}
-            href="#"
+            key={label}
+            href={href}
             className="btn-blast"
             onClick={() => setOpen(false)}
             style={{ width: '100%', justifyContent: 'center', fontSize: '0.75rem' }}
           >
-            {link}
+            {label}
           </a>
         ))}
       </div>

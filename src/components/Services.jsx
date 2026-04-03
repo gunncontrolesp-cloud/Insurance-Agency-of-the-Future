@@ -191,6 +191,7 @@ export default function Services() {
 
   return (
     <section
+      id="services"
       style={{
         background: '#020408',
         padding: '8rem 2rem 6rem',
