@@ -1,6 +1,6 @@
 const footerLinks = {
   Services: [
-    'Covered California',
+    'Life Insurance',
     'Medicare',
     'Business Insurance',
     'Accident Coverage',

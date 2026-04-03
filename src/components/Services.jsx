@@ -4,8 +4,8 @@ import ServicesBackground from './ServicesBackground';
 
 const services = [
   {
-    title: 'Covered California',
-    desc: 'Get affordable health coverage that meets your needs.',
+    title: 'Life Insurance',
+    desc: 'Protect the people who matter most with coverage built to last a lifetime.',
     icon: (
       <svg viewBox="0 0 48 48" fill="none" width="44" height="44">
         <path d="M24 6C24 6 10 12 10 24C10 32 16 38 24 42C32 38 38 32 38 24C38 12 24 6 24 6Z" stroke="#60A5FA" strokeWidth="2" fill="rgba(59,130,246,0.08)"/>
