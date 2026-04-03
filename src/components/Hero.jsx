@@ -18,7 +18,6 @@ function useIntersection(ref, options = {}) {
 export default function Hero() {
   const headlineRef = useRef(null);
   const subRef = useRef(null);
-  const ctaRef = useRef(null);
 
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
@@ -170,24 +169,6 @@ export default function Hero() {
           Insurance reimagined for the world that's coming.
         </p>
 
-        {/* CTA group */}
-        <div
-          ref={ctaRef}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '2.5rem',
-            flexWrap: 'wrap',
-            opacity: loaded ? 1 : 0,
-            transform: loaded ? 'translateY(0)' : 'translateY(20px)',
-            transition: 'opacity 1s ease 1s, transform 1s ease 1s',
-          }}
-        >
-          <a href="#services" className="btn-blast">
-            View Our Services
-          </a>
-        </div>
 
       </div>
 
