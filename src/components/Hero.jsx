@@ -185,12 +185,6 @@ export default function Hero() {
           }}
         >
           <a href="#" className="btn-blast">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-              <path d="M7 1L13 7L7 13M1 7H13" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-            Enter the Void
-          </a>
-          <a href="#" className="btn-secondary">
             Learn More
           </a>
         </div>
