@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import ConsultationModal from './ConsultationModal';
+import ServicesBackground from './ServicesBackground';
 
 const services = [
   {
@@ -200,6 +201,9 @@ export default function Services() {
         position: 'relative',
       }}
     >
+      {/* Constellation background animation */}
+      <ServicesBackground />
+
       {/* Subtle section separator glow */}
       <div
         style={{
