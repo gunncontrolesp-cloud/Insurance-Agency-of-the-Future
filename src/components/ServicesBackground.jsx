@@ -18,8 +18,8 @@ export default function ServicesBackground() {
     resize();
     window.addEventListener('resize', resize);
 
-    const NODE_COUNT = 55;
-    const MAX_DIST = 180;
+    const NODE_COUNT = 80;
+    const MAX_DIST = 220;
 
     class Node {
       constructor() { this.reset(true); }
@@ -28,15 +28,15 @@ export default function ServicesBackground() {
         this.y = initial ? Math.random() * height : (Math.random() < 0.5 ? -10 : height + 10);
         this.vx = (Math.random() - 0.5) * 0.35;
         this.vy = (Math.random() - 0.5) * 0.35;
-        this.r = 1 + Math.random() * 2;
-        this.baseOpacity = 0.2 + Math.random() * 0.5;
+        this.r = 1.5 + Math.random() * 2.5;
+        this.baseOpacity = 0.4 + Math.random() * 0.6;
         this.opacity = 0;
         this.life = 0;
         this.maxLife = 400 + Math.random() * 400;
         // Mostly blue, some amber
         this.isAmber = Math.random() < 0.15;
         this.color = this.isAmber ? '252,211,77' : '96,165,250';
-        this.glowing = Math.random() < 0.3;
+        this.glowing = Math.random() < 0.5;
         this.pulseOffset = Math.random() * Math.PI * 2;
       }
       update(t) {
@@ -66,11 +66,12 @@ export default function ServicesBackground() {
         const r = this.r * pulse;
 
         if (this.glowing) {
-          const grd = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, r * 8);
-          grd.addColorStop(0, `rgba(${this.color},${this.opacity * 0.8})`);
+          const grd = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, r * 14);
+          grd.addColorStop(0, `rgba(${this.color},${this.opacity})`);
+          grd.addColorStop(0.4, `rgba(${this.color},${this.opacity * 0.4})`);
           grd.addColorStop(1, `rgba(${this.color},0)`);
           ctx.beginPath();
-          ctx.arc(this.x, this.y, r * 8, 0, Math.PI * 2);
+          ctx.arc(this.x, this.y, r * 14, 0, Math.PI * 2);
           ctx.fillStyle = grd;
           ctx.fill();
         }
@@ -92,7 +93,7 @@ export default function ServicesBackground() {
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist > MAX_DIST) continue;
 
-          const alpha = (1 - dist / MAX_DIST) * Math.min(a.opacity, b.opacity) * 0.6;
+          const alpha = (1 - dist / MAX_DIST) * Math.min(a.opacity, b.opacity) * 0.9;
           const useAmber = a.isAmber && b.isAmber;
           const color = useAmber ? '252,211,77' : '96,165,250';
 
@@ -101,11 +102,11 @@ export default function ServicesBackground() {
           ctx.moveTo(a.x, a.y);
           ctx.lineTo(b.x, b.y);
           ctx.strokeStyle = `rgba(${color},${alpha})`;
-          ctx.lineWidth = 0.6;
+          ctx.lineWidth = 1;
           ctx.stroke();
 
           // Travelling dot along the edge (occasional)
-          if (dist < 100 && Math.random() < 0.002) {
+          if (dist < 140 && Math.random() < 0.004) {
             const prog = (Date.now() % 2000) / 2000;
             const tx = a.x + (b.x - a.x) * prog;
             const ty = a.y + (b.y - a.y) * prog;
@@ -143,7 +144,7 @@ export default function ServicesBackground() {
         width: '100%',
         height: '100%',
         pointerEvents: 'none',
-        opacity: 0.65,
+        opacity: 0.9,
       }}
     />
   );
