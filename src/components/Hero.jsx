@@ -189,60 +189,6 @@ export default function Hero() {
           </a>
         </div>
 
-        {/* BLAST acronym strip */}
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            gap: 'clamp(1.5rem, 4vw, 3.5rem)',
-            marginTop: '5rem',
-            opacity: loaded ? 1 : 0,
-            transition: 'opacity 1.2s ease 1.3s',
-          }}
-        >
-          {[
-            { letter: 'B', word: 'Bold' },
-            { letter: 'L', word: 'Luminous' },
-            { letter: 'A', word: 'Animated' },
-            { letter: 'S', word: 'Spatial' },
-            { letter: 'T', word: 'Typographic' },
-          ].map(({ letter, word }, i) => (
-            <div
-              key={letter}
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                gap: '0.3rem',
-                opacity: loaded ? 1 : 0,
-                transition: `opacity 0.6s ease ${1.3 + i * 0.1}s`,
-              }}
-            >
-              <span
-                className="font-display"
-                style={{
-                  fontSize: 'clamp(1.4rem, 2.5vw, 1.8rem)',
-                  fontWeight: 900,
-                  color: '#FCD34D',
-                  lineHeight: 1,
-                }}
-              >
-                {letter}
-              </span>
-              <span
-                className="font-mono"
-                style={{
-                  fontSize: '0.6rem',
-                  letterSpacing: '0.18em',
-                  textTransform: 'uppercase',
-                  color: 'rgba(240,237,232,0.35)',
-                }}
-              >
-                {word}
-              </span>
-            </div>
-          ))}
-        </div>
       </div>
 
       {/* ── Scroll indicator ── */}

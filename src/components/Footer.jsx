@@ -10,15 +10,6 @@ export default function Footer() {
         zIndex: 10,
       }}
     >
-      <div style={{ marginBottom: '1.5rem' }}>
-        <span
-          className="font-display"
-          style={{ fontSize: '1.1rem', fontWeight: 700, color: '#F0EDE8', letterSpacing: '0.3em' }}
-        >
-          B<span style={{ color: '#FCD34D' }}>L</span>AST
-        </span>
-      </div>
-
       <p
         className="font-mono"
         style={{
