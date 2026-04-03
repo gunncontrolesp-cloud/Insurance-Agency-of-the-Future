@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import ConsultationModal from './ConsultationModal';
 
 const services = [
   {
@@ -177,6 +178,7 @@ function ServiceCard({ service, index }) {
 export default function Services() {
   const titleRef = useRef(null);
   const [titleVisible, setTitleVisible] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     const el = titleRef.current;
@@ -284,14 +286,20 @@ export default function Services() {
 
       {/* Book consultation CTA */}
       <div style={{ textAlign: 'center', marginTop: '4rem' }}>
-        <a href="#" className="btn-blast" style={{ fontSize: '0.72rem' }}>
+        <button
+          onClick={() => setModalOpen(true)}
+          className="btn-blast"
+          style={{ fontSize: '0.72rem', cursor: 'pointer' }}
+        >
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
             <rect x="2" y="2" width="10" height="10" rx="1.5" stroke="currentColor" strokeWidth="1.2"/>
             <path d="M5 1V3M9 1V3M2 5H12" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
           </svg>
           Book Free Consultation
-        </a>
+        </button>
       </div>
+
+      <ConsultationModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </section>
   );
 }

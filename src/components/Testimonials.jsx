@@ -29,6 +29,20 @@ const testimonials = [
     initials: "JK",
     color: "#FCD34D",
   },
+  {
+    quote: "The critical illness plan gave my whole family peace of mind. Knowing we're protected lets us focus on what matters most.",
+    name: "Diana R.",
+    role: "Critical Illness Plan Holder",
+    initials: "DR",
+    color: "#A78BFA",
+  },
+  {
+    quote: "I called expecting a sales pitch and got a real conversation instead. They found me a plan I could actually afford.",
+    name: "Carlos M.",
+    role: "Hospital Confinement Member",
+    initials: "CM",
+    color: "#34D399",
+  },
 ];
 
 function Stars() {
